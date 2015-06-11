@@ -38,6 +38,19 @@ public:
 	ItemType getMediumItem() const { return mediumItem; }
 
 
+	void deleteItem(const ItemType& anItem)
+	{
+		if (anItem == smallItem)
+		{
+			smallItem = largeItem;
+			--ItemNum;
+		}
+		else if (anItem == largeItem)
+		{
+			--ItemNum;
+		}
+		ItemNum = (ItemNum < 0) ? 0 : ItemNum;
+	}
 	void enterItem(const ItemType& anItem)
 	{
 		if (ItemNum == 1)
@@ -92,6 +105,10 @@ public:
 	}
 
 	void enterChildPtr(TriNode<ItemType>* newPtr) {
+		if (newPtr == nullptr)
+			return;
+
+		newPtr->setParentPtr(this);
 		if (isThreeNode())
 		{
 			if (newPtr->getSmallItem() > leftChildPtr->getSmallItem())
