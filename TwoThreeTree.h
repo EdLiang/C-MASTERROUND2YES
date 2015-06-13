@@ -27,6 +27,7 @@ public:
 	bool isEmpty() const{ return (pRoot == nullptr) ? true: false; }
 
 	bool findItem(const ItemType&);
+	ItemType getItem(const ItemType&);
 	void insertItem(const ItemType&);
 	bool removeItem(const ItemType&);
 
@@ -154,13 +155,35 @@ bool TwoThreeTree<ItemType>::findItemHelper(TriNode<ItemType>* Node, const ItemT
 template <class ItemType>
 bool TwoThreeTree<ItemType>::findItem(const ItemType& item)
 {
-	if (pRoot)
+	if (pRoot != nullptr)
 	{
 		return findItemHelper(pRoot, item);
 	}
 	else
 	{
 		return false;
+	}
+}
+
+template <class ItemType>
+ItemType TwoThreeTree<ItemType>::getItem(const ItemType& item)
+{
+	if (pRoot != nullptr)
+	{
+		TriNode<ItemType>* node = findNodeHelper(pRoot, item);
+		if (node->getItemNum() == 2)
+		{
+			if (node->getLargeItem() == item)
+			{
+				return node->getLargeItem();
+			}
+			else
+				return node->getSmallItem();
+		}
+		else
+		{
+			return node->getSmallItem();
+		}
 	}
 }
 
@@ -231,6 +254,7 @@ TriNode<ItemType>* TwoThreeTree<ItemType>::insertHelper(TriNode<ItemType>* Node,
 	}
 	if (Node->getItemNum() == 3)
 		split(Node);
+	return Node;
 }
 
 template <class ItemType>

@@ -8,11 +8,11 @@ class RedBlackNode
 {
 private:
 	ItemType val;
-	Colour leftColour, rightColour;
+	Colour leftColour = black, rightColour = black;
 	RedBlackNode<ItemType> *leftNode, *rightNode;
 public:
-	RedBlackNode();
-	~RedBlackNode();
+	RedBlackNode() {};
+	~RedBlackNode() {};
 
 	Colour getLeftColour() const { return leftColour; }
 	Colour getRightColour() const { return rightColour; }
