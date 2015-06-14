@@ -1,0 +1,45 @@
+<friend>
+	<first>Stalin</first>
+	<last>Vissarovich</last>
+	<DoB>12/18/1879</DoB>
+</friend>
+<friend>
+	<first>Lenin</first>
+	<last>Ulyanov</last>
+	<DoB>4/1/187</DoB>
+</friend>
+<friend>
+	<first>Rommel</first>
+	<last>DessertFox</last>
+	<DoB>3/23/19</DoB>
+</friend>
+<friend>
+	<first>Oskar</first>
+	<last>Johansson</last>
+	<DoB>3/11/1996</DoB>
+</friend>
+<friend>
+	<first>Parsa</first>
+	<last>Moein</last>
+	<DoB>4/3/1997</DoB>
+</friend>
+<friend>
+	<first>Darya</first>
+	<last>Moein</last>
+	<DoB>11/28/1998</DoB>
+</friend>
+<friend>
+	<first>Sanny</first>
+	<last>Scotsman</last>
+	<DoB>5/27/1996</DoB>
+</friend>
+<friend>
+	<first>George</first>
+	<last>Murica</last>
+	<DoB>3/3/1991</DoB>
+</friend>
+<friend>
+	<first>Aiden</first>
+	<last>BeltonSchures</last>
+	<DoB>3/3/1997</DoB>
+</friend>
