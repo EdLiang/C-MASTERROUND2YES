@@ -1,3 +1,4 @@
+
 #ifndef TwoThreeTree_H
 #define TwoThreeTree_H
 
@@ -9,9 +10,9 @@ template <class ItemType>
 class TwoThreeTree
 {
 private:
-	void inOrder(TriNode<ItemType>*, void visit(ItemType&));
-	void postOrder(TriNode<ItemType>*, void visit(ItemType&));
-	void preOrder(TriNode<ItemType>*, void visit(ItemType&));
+	void inOrder(TriNode<ItemType>*, void visit(ItemType));
+	void postOrder(TriNode<ItemType>*, void visit(ItemType));
+	void preOrder(TriNode<ItemType>*, void visit(ItemType));
 
 	bool findItemHelper(TriNode<ItemType>* Node, const ItemType&);
 	TriNode<ItemType> * findNodeHelper(TriNode<ItemType>* Node, const ItemType&);
@@ -33,24 +34,24 @@ public:
 
 	void clear();
 
-	void traverseInOrder(void visit(ItemType&));
-	void traversePostOrder(void visit(ItemType&));
-	void traversePreOrder(void visit(ItemType&));
+	void traverseInOrder(void visit(ItemType));
+	void traversePostOrder(void visit(ItemType));
+	void traversePreOrder(void visit(ItemType));
 };
 
 template <class ItemType>
-void TwoThreeTree<ItemType>::inOrder(TriNode<ItemType>* Node, void visit(ItemType&))
+void TwoThreeTree<ItemType>::inOrder(TriNode<ItemType>* Node, void visit(ItemType))
 {
 	if (Node->isLeaf())
 	{
-		visit(Node->getSmallItem);
+		visit(Node->getSmallItem());
 	}
 	else if (Node->isThreeNode())
 	{
 		inOrder(Node->getLeftChildPtr(), visit);
 		visit(Node->getSmallItem());
 		inOrder(Node->getMidChildPtr(), visit);
-		visit(Node->getRightChildPtr());
+		visit(Node->getLargeItem());
 		inOrder(Node->getRightChildPtr(), visit);
 	}
 	else
@@ -62,7 +63,7 @@ void TwoThreeTree<ItemType>::inOrder(TriNode<ItemType>* Node, void visit(ItemTyp
 }
 
 template <class ItemType>
-void TwoThreeTree<ItemType>::postOrder(TriNode<ItemType>* Node, void visit(ItemType&))
+void TwoThreeTree<ItemType>::postOrder(TriNode<ItemType>* Node, void visit(ItemType))
 {
 	if (Node->isLeaf())
 	{
@@ -85,7 +86,7 @@ void TwoThreeTree<ItemType>::postOrder(TriNode<ItemType>* Node, void visit(ItemT
 }
 
 template <class ItemType>
-void TwoThreeTree<ItemType>::preOrder(TriNode<ItemType>* Node, void visit(ItemType&))
+void TwoThreeTree<ItemType>::preOrder(TriNode<ItemType>* Node, void visit(ItemType))
 {
 	if (Node->isLeaf())
 	{
@@ -454,18 +455,18 @@ void TwoThreeTree<ItemType>::clear()
 }
 
 template <class ItemType>
-void TwoThreeTree<ItemType>::traverseInOrder(void visit(ItemType&))
+void TwoThreeTree<ItemType>::traverseInOrder(void visit(ItemType))
 {
 	inOrder(pRoot, visit);
 }
 template <class ItemType>
-void TwoThreeTree<ItemType>::traversePostOrder(void visit(ItemType&))
+void TwoThreeTree<ItemType>::traversePostOrder(void visit(ItemType))
 {
 	postOrder(pRoot, visit);
 }
 
 template <class ItemType>
-void TwoThreeTree<ItemType>::traversePreOrder(void visit(ItemType&))
+void TwoThreeTree<ItemType>::traversePreOrder(void visit(ItemType))
 {
 	preOrder(pRoot, visit);
 }
